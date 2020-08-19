@@ -34,6 +34,12 @@ public class TestController {
     private UserService userService;
 
 
+    /**
+     * 写了一个测试的修改提交
+     * @param phoneNumber
+     * @param content
+     * @return
+     */
 
     //发短信
     @RequestMapping("sendmessage")
