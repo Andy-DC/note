@@ -14,6 +14,7 @@
     ，毕竟Maven和Springboot是两家公司，而Spring也是外国公司，两者同步时间会有时差-->
     <!--IDEA和maven版本不符合。建议是用IDEA自带的maven。路径在IntelliJ IDEA 2019.3.3\plugins\maven\lib\maven3    -->
 
+
     <groupId>com</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
