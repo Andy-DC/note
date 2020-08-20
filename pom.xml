@@ -74,6 +74,14 @@
             <version>2.8.6</version>
         </dependency>
 
+        <!--JSR311(javax.ws.rs)是Java实现REST Web Service 的规范标准。-->
+        <!-- https://mvnrepository.com/artifact/javax.ws.rs/jsr311-api -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
 
         <!--amqp的起步依赖rabbitMQ-->
         <dependency>

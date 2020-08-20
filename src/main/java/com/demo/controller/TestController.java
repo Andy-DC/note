@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 
+import com.demo.common.sms.SMSService;
 import com.demo.common.util.ErrorAndVOTuple;
 import com.demo.common.util.ResponseUtil;
 import com.demo.common.util.ResponseVO;
@@ -9,7 +10,6 @@ import com.demo.model.param.TestNameParams;
 import com.demo.model.vo.IVo;
 import com.demo.model.vo.TestListPageVo;
 import com.demo.service.ITestService;
-import com.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,9 @@ public class TestController {
     @Autowired
     private ITestService iTestService;
 
+
     @Autowired
-    private UserService userService;
+    private SMSService smsService;
 
 
     /**
@@ -43,19 +44,19 @@ public class TestController {
 
     //发短信
     @RequestMapping("sendmessage")
-    public int ajaxSmsSendMessage(String phoneNumber,String content){
+    public int ajaxSmsSendMessage(@RequestBody String phoneNumber,String content){
         log.info("content+phoneNumber",content+phoneNumber);
-
         int num = 0;
         try {
             String[] split = phoneNumber.split(",");
             for (int i = 0; i < split.length; i++) {
-                String messageSend = userService.sendSMS(split[i], content);
+                String messageSend = smsService.sendSMS(split[i], content);
                 if(messageSend!="" && messageSend!=null) {
                     num++;
                 }
             }
             return num;
+
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
